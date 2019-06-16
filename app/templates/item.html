@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block main %}
+{% include 'flash_messages.html' %}
+
+<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type=text/javascript>
+        $(function() {
+          $('a#search').bind('click', function() {
+            $.getJSON('/item-search',
+                function(data) {
+              //do nothing
+            });
+            return false;
+          });
+        });
+</script> -->
+
+<h1>Available Items</h1><br><br>
+
+
+<form action= "{{url_for('item_search')}}" method= "POST">
+  <!-- <input class= "form-control" type="text" name="search" id="search"> -->
+  {{ searchForm.searchTerm.label }}<br>
+  {{ searchForm.searchTerm(class = "form-control", placeholder = 'Search for a device..', id= "search")}}<br>
+  <button id="searchBtn" class="btn btn-dark">Search</button>
+ </form> 
+ {% if items %}
+{% for item in items %}
+{% if item.iid < 6 %}
+<div id="empty-div"></div>
+  <div id="listing">
+      <ul>
+          <li><h4 class="text">{{item.iname}}</h4><br>
+          <p class="text">Price: ${{item.icost}}</p><br> 
+          
+          <!-- <a href= "/purchase-item"><button class="btn btn-primary">Purchase Now</button></a> -->
+
+          <form action="{{url_for('purchase_item')}}" method="POST">
+              <script
+                src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                data-key="{{ pub_key }}"
+                data-amount="{{item.icost*100}}"
+                data-name="Compu Store"
+                data-description="{{item.iname}}"
+                data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+                data-locale="auto">
+              </script>
+            </form>
+          
+          </li>
+      </ul>
+  </div>
+
+
+{% endif %}
+{% endfor %}
+{% endif %}
+{% endblock %}

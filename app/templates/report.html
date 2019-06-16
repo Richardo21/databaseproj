@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block main %}
+
+<h2>Compu Store Sales and Reports</h2>
+<br><br>
+<h5>Portmore Branch</h5>
+<form method= "POST" action="{{url_for('portmoreTopSales')}}">
+
+    <button class="btn btn-dark">View Top Sales For Portmore Branch </button>
+</form><br>
+<form method="POST" action="{{url_for('portmoreNumSales')}}">
+    <button class="btn btn-dark">View Listing of Number of Sales For Portmore Branch</button>
+</form><br><br>
+
+<h5>Kingston Branch</h5>
+<form method= "POST" action="{{url_for('kingstonTopSales')}}">
+    <button class="btn btn-dark">View Top Sales For Kingston Branch </button>
+</form><br>
+<form method="POST" action="{{url_for('kingstonNumSales')}}">
+        <button class="btn btn-dark">View Listing of Number of Sales For Kingston Branch</button>
+</form><br><br>
+
+
+<h5>Halfway Tree Branch</h5>
+<form method= "POST" action="{{url_for('halfwaytreeTopSales')}}">
+        <button class="btn btn-dark">View Top Sales For Halfway Tree Branch </button>
+</form><br>
+<form method="POST" action="{{url_for('halfwaytreeNumSales')}}">
+        <button class="btn btn-dark">View Listing of Number of Sales For Halfway Tree Branch</button>
+</form><br><br>
+
+{% endblock %}

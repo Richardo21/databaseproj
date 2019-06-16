@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block main %}
+<h4>Top Three Laptops With Highest Sales For Portmore Branch</h4><br><br></div>
+{%if laptops %}
+{% for laptop in laptops %}
+
+<ul>
+    <div id="empty-div"></div>
+    <div id="empty-div"></div>
+    <div id="listing1">
+        <li><h2 class="text">{{laptop[0][0]}}1</h2> 
+        <p class="text">Unit Price: ${{laptop[0][1]}}</p>
+        <p class="text">Total Sales: ${{laptop[0][2]}}</p></li><br><br>
+    </div>
+    <div id="empty-div"></div>
+
+    <div id="listing1">
+        <li><h2 class="text">{{laptop[1][0]}}2</h2> 
+        <p class="text">Unit Price: ${{laptop[1][1]}}</p>
+        <p class="text">Total Sales: ${{laptop[1][2]}}</p></li><br><br>
+    </div>
+    <div id="empty-div"></div>
+
+    <div id="listing1">
+        <li><h2 class="text">{{laptop[2][0]}}3</h2>
+        <p class="text">Unit Price: ${{laptop[2][1]}}</p>
+        <p class="text">Total Sales: ${{laptop[2][2]}}</p></li><br><br>
+    </div>
+</ul>
+
+{% endfor %}
+{% endif %}
+
+{% endblock %}

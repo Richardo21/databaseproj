@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block main %}
+
+<h1>Registration Form</h1><br><br>
+<div class = 'form-container'>
+    <form method = "POST" action= "{{ url_for('register')}}">
+
+        {{ registerForm.csrf_token }}
+
+        {{ registerForm.uname.label}}<br>
+        {{ registerForm.uname(class = 'form-input', placeholder = 'Enter your user name.')}}<br><br>
+
+        {{ registerForm.pword.label}}<br>
+        {{ registerForm.pword(class = 'form-input', placeholder = 'Enter your password.')}}<br><br>
+
+        {{ registerForm.confirm.label }}<br>
+        {{ registerForm.confirm(class = 'form-input', placeholder ='Re-enter your password.')}}<br><br>
+
+        {{registerForm.crdcardno.label}}<br>
+        {{ registerForm.crdcardno(class = 'form-input', placeholder = 'Enter your credit card number.')}}<br><br>
+
+        <button type = "sumbit" name = "submit" class = "btn btn-dark">Register Now</button><br>
+
+    </form>
+</div>
+
+{% endblock %}

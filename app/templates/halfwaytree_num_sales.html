@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block main %}
+<h4>List of Number of Sales For Halfway Tree Branch</h4><br><br>
+
+{% if listing %}
+{% for list in listing %}
+
+
+<div class="sales-container">
+    <ul>
+        <li>1. {{list[0][0]}} : {{list[0][1]}}</li>
+        <li>2. {{list[1][0]}} : {{list[1][1]}}</li>
+        <li>3. {{list[2][0]}} : {{list[2][1]}}</li>
+        <li>4. {{list[3][0]}} : {{list[3][1]}}</li>
+        <li>5. {{list[4][0]}} : {{list[4][1]}}</li>
+        <li>6. {{list[5][0]}} : {{list[5][1]}}</li>
+        <li>7. {{list[6][0]}} : {{list[6][1]}}</li>
+        <li>8. {{list[7][0]}} : {{list[7][1]}}</li>
+        <li>9. {{list[8][0]}} : {{list[8][1]}}</li>
+        <li>10. {{list[9][0]}} : {{list[9][1]}}</li>
+        <li>11. {{list[10][0]}} : {{list[10][1]}}</li>
+        <li>12. {{list[11][0]}} : {{list[11][1]}}</li>
+    </ul>
+</div>
+
+
+
+{% endfor %}
+{% endif %}
+{% endblock %}

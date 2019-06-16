@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block main %}
+{% include 'flash_messages.html' %}
+
+<h1>Search Results</h1><br><br>
+{% if items %} 
+{% if branch %}
+{% for item in items %}
+{% for b in branch %}
+{% if item.iname == searchTerm and item.iid < 10 and b.branch_id == 1%}
+
+<div id="empty-div"></div>
+  <div id="listing">
+      <ul>
+          <li><h4 class="text">{{item.iname}}</h4><br>
+          <p class="text">Price: ${{item.icost}}</p><br> 
+          <p class="text">Located at: {{b.branch_name}}</p>
+          <!-- <a href= "/purchase-item"><button class="btn btn-primary">Purchase Now</button></a> -->
+
+          <form action="{{url_for('purchase_item')}}" method="POST">
+              <script
+                src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                data-key="{{ pub_key }}"
+                data-amount="{{item.icost*100}}"
+                data-name="Compu Store"
+                data-description="{{item.iname}}"
+                data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+                data-locale="auto">
+              </script>
+            </form>
+          
+          </li>
+      </ul>
+  </div>
+
+
+{% endif %}
+{% endfor %}
+{% endfor %}
+{% endif %}
+{% endif %}
+{% endblock %}
